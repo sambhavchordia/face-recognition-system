@@ -176,13 +176,21 @@ Default: `mongodb://localhost:27017/`
 
 To use MongoDB Atlas or custom URI:
 
-1. Create `.env` file in `backend/`:
+1. Copy `.env.example` to `.env` in the `backend/` directory:
+```bash
+cd backend
+cp .env.example .env
+```
+
+2. Update the `.env` file with your MongoDB credentials:
 ```env
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/
+MONGODB_URI=your_mongodb_connection_string
 DATABASE_NAME=facerecognition
 COLLECTION_NAME=students
 THRESHOLD=0.6
 ```
+
+**Note**: Never commit your `.env` file to version control!
 
 ---
 
