@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { API_BASE_URL } from "../../../lib/config";
 import { useRouter } from "next/navigation";
 import { Camera, ArrowLeft, Play, Square, User, BarChart3 } from "lucide-react";
 import CameraCapture, { FaceData } from "../../components/CameraCapture";
@@ -22,7 +23,7 @@ export default function DemoSession() {
     if (!isLiveActive) return;
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/demo/recognize", {
+      const res = await fetch(`${API_BASE_URL}/api/demo/recognize`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: dataUrl }),

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import { API_BASE_URL } from "../../../lib/config";
 import { useRouter } from "next/navigation";
 import { Camera, ArrowLeft, Play, Square, User, Calendar, BookOpen, GraduationCap, Users, CheckCircle2 } from "lucide-react";
 import CameraCapture, { FaceData } from "../../components/CameraCapture";
@@ -38,7 +39,7 @@ export default function DemoSessionPage() {
 
     setStatus("Creating session...");
     try {
-      const res = await fetch("http://localhost:5000/api/attendance/create_session", {
+      const res = await fetch(`${API_BASE_URL}/api/attendance/create_session`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -70,7 +71,7 @@ export default function DemoSessionPage() {
       }
 
       try {
-        const res = await fetch("http://localhost:5000/api/attendance/real-mark", {
+        const res = await fetch(`${API_BASE_URL}/api/attendance/real-mark`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

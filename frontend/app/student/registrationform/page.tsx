@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import { API_BASE_URL } from "../../../lib/config";
 import { useRouter } from "next/navigation";
 import MultiCameraCapture from "../../components/MultiCameraCapture";
 import { 
@@ -115,7 +116,7 @@ export default function StudentRegistrationForm() {
     setStatus("Registering student...");
     try {
       const headerEmail = (typeof window !== 'undefined' && localStorage.getItem('userEmail')) || formData.email;
-      const res = await fetch("http://127.0.0.1:5000/api/register-student", {
+      const res = await fetch(`${API_BASE_URL}/api/register-student`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
