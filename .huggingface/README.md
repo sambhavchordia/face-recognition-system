@@ -1,7 +1,9 @@
 ---
-title: Face Recognition Backend
-emoji: 🤖
+title: Face Recognition System
+emoji: 🤗
+colorFrom: blue
+colorTo: green
 sdk: docker
-dockerfile_path: backend/Dockerfile
-app_port: 7860
+app_port: 8000
+dockerfile_path: backend/Dockerfile 
 ---
